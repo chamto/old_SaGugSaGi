@@ -92,11 +92,11 @@ namespace Proto_AI_4
 
             EntityMgr.list.Clear();
 
-            //InitPlatton_SQD1(0);
-            //InitPlatton_SQD4_Cross(0);
-            //InitSquadTest();
+            // InitPlatton_SQD1(0);
+            // InitPlatton_SQD4_Cross(0);
+            InitSquadTest();
 
-            InitFlockingTest();
+            // InitFlockingTest();
             //----------------------------------------------
 
             //충돌검출기 초기화 
@@ -163,6 +163,7 @@ namespace Proto_AI_4
 
         public void InitSquadTest()
         {
+            
             Unit unit = null;
             for (int i = 0; i < 20; i++)
             {
@@ -198,6 +199,14 @@ namespace Proto_AI_4
                     u._steeringBehavior.OffsetPursuitOn();
                 }
             }
+
+            int platId = 0; //임시
+            _Platoons[platId] = Squad.Create();
+            _Platoons[platId]._targetPos = _tr_platoon_0.position;
+            _Platoons[platId]._pos = _tr_platoon_0.position;
+            _Platoons[platId]._depth = (int)eFormDepth.Platoon;
+            _Platoons[platId].AddSquad(_Squads[0]);
+
         }
 
         //public void InitPlatton_SQD1(int platId)
